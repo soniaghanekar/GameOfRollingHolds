@@ -1,9 +1,10 @@
-/**
- * Created by IntelliJ IDEA.
- * User: sonia
- * Date: 27/08/12
- * Time: 1:03 PM
- * To change this template use File | Settings | File Templates.
- */
+
 public class Hold {
+
+    public boolean executeHold(IAmAPlayer player) {
+        player.setScore(player.getScore() + player.getTurn_total());
+        player.setTurn_total(0);
+        return false;
+    }
+
 }
