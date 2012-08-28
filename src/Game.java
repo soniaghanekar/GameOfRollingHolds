@@ -41,7 +41,7 @@ public class Game {
         while (!isGameOver()){
             getAChoiceToPlayAgain = true;
             System.out.println(player.getName() + ": Score: " + player.getScore());
-            System.out.println(player.getName() + ": Choose Roll(r) or Hold(h): ");
+            System.out.print(player.getName() + ": Choose Roll(r) or Hold(h): ");
             while((inputValue=acceptAValidCharInput())=='\0')
                 System.out.print("Enter a valid input!! ");
             player.setChoice(inputValue);

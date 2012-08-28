@@ -13,7 +13,7 @@ public class Roll {
     public boolean executeRollAndReturnTrueIfSuccessful(IAmAPlayer player, Dice dice, IAmAPlayer remainingPlayer) {
         boolean isSuccessful;
         int newValue = dice.getNewValue();
-        System.out.print(player.getName() + ":  Dice value : " + newValue);
+        System.out.print(player.getName() + ": Dice value : " + newValue);
         if(!unsuccessfulRollDiceValues.contains(newValue)){
             isSuccessful = successfulRoll(player, newValue);
             System.out.print( "  Turn Total : " + player.getTurn_total() + "\n");
