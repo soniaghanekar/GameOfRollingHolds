@@ -1,0 +1,43 @@
+==========================
+The Game Of Rolling Holds
+==========================
+
+In this game there are 2 players. There is one dice. The aim of the game is to be the first to SCORE 50 points. 
+
+When its a player's chance he has 2 choices: 
+1) Roll.
+2) Hold.
+
+If the player chooses to Roll,
+- if he throws a dice with 2,3,5 or 6, then the player's TURN TOTAL is increased by the dice value. Now he again has the choice to Roll, or Hold. 
+- if he throws a dice with 1 or 4, then the player loses his TURN TOTAL, and hands over the dice to the other player and the SCORE of the player remains the same. In this case, the current players lost TURN TOTAL is added to the other player's score.
+
+If the player chooses to HOLD, then his current TURN TOTAL is added to his current SCORE, and the dice is given to the other opponent. 
+ 
+Write a program where 2 people can play the game of Rolling Holds. The dice will be thrown by the computer. The players will get only the choice to choose between whether they want to Roll, or Hold. The computer will keep score, and will terminate the game the moment one person wins. 
+
+Sample Program Output (Candidates can choose to create a different output if they like):
+
+
+Welcome to Game of Rolling Holds
+===================================
+Player1: Score: 0 
+Player1: Choose Roll(r), or Hold(h): r
+Player1: Dice Value: 3   Turn Total: 3  Score: [Player1: 0, Player2: 0]
+Player1: Choose Roll(r), or Hold(h): r
+Player1: Dice Value: 6   Turn Total: 9  Score: [Player1: 0, Player2: 0]
+Player1: Choose Roll(r), or Hold(h): h
+Player1: Score: [Player1: 9, Player2: 0]
+
+Player2: Score: 0
+Player2: Choose Roll(r), or Hold(h): r
+Player2: Dice Value: 2   Turn Total: 2  Score: [Player1: 9, Player2: 0]
+Player2: Choose Roll(r), or Hold(h): r
+Player2: Dice Value: 4   Turn Total: 0  Score: 0 TURN FORFEITED! Player 1 gets 2 points.
+Player2: Score: [Player1: 11, Player2: 0]
+
+Player1: Score: 11
+Player1: Choose Roll(r), or Hold(h): r
+Player1: Dice Value: 5   Turn Total: 5  Score: [Player1: 11, Player2: 0]
+Player1: Choose Roll(r), or Hold(h):
+….. So on….
