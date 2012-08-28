@@ -13,24 +13,28 @@ public class Roll {
     public boolean executeRollAndReturnTrueIfSuccessful(IAmAPlayer player, Dice dice, IAmAPlayer remainingPlayer) {
         boolean isSuccessful;
         int newValue = dice.getNewValue();
+        System.out.print(player.getName() + ":  Dice value : " + newValue);
         if(!unsuccessfulRollDiceValues.contains(newValue)){
-            successfulRoll(player, newValue);
-            isSuccessful = true;
+            isSuccessful = successfulRoll(player, newValue);
+            System.out.print( "  Turn Total : " + player.getTurn_total() + "\n");
         }
         else{
-            unsuccessfulRoll(player, remainingPlayer);
-            isSuccessful = false;
+            int playersEarlierTurnTotal = player.getTurn_total();
+            isSuccessful = unsuccessfulRoll(player, remainingPlayer);
+            System.out.print("   Turn Total : " + player.getTurn_total() + "   Score : "+ player.getScore()+" TURN FORFEITED " + remainingPlayer.getName() +" gets " + playersEarlierTurnTotal + " points\n");
         }
-        System.out.println(player.getName() + ":  Dice value : " + newValue + "  Turn Total : " + player.getTurn_total() + "\n");
+
         return isSuccessful;
     }
 
-    private void successfulRoll(IAmAPlayer player, int newValue) {
+    private boolean successfulRoll(IAmAPlayer player, int newValue) {
         player.setTurn_total(player.getTurn_total()+newValue);
+        return true;
     }
 
-    private void unsuccessfulRoll(IAmAPlayer player, IAmAPlayer remainingPlayer) {
+    private boolean unsuccessfulRoll(IAmAPlayer player, IAmAPlayer remainingPlayer) {
         remainingPlayer.setScore(remainingPlayer.getScore() + player.getTurn_total());
         player.setTurn_total(0);
+        return false;
     }
 }

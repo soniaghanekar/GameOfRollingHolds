@@ -37,17 +37,17 @@ public class Game {
         System.out.println("======================================\n");
         IAmAPlayer player = player1;
         char inputValue;
-        boolean getAChoiceToPlayAgain = true;
+        boolean getAChoiceToPlayAgain;
         while (!isGameOver()){
             getAChoiceToPlayAgain = true;
             System.out.println(player.getName() + ": Score: " + player.getScore());
             System.out.println(player.getName() + ": Choose Roll(r) or Hold(h): ");
             while((inputValue=acceptAValidCharInput())=='\0')
-                System.out.println("Enter a valid input");
+                System.out.print("Enter a valid input!! ");
             player.setChoice(inputValue);
             if(!gameStrategy.makeChangesBasedOnChoice(player, dice, getRemainingPlayer(player)))
                 getAChoiceToPlayAgain = false;
-            System.out.println("Scores: Player1:" + player1.getScore() + " Player2:" + player2.getScore() + "\n\n");
+            System.out.println("Scores: Player1 : " + player1.getScore() + "  Player2 : " + player2.getScore() + "\n\n");
             if(!getAChoiceToPlayAgain)
                 player = getRemainingPlayer(player);
         }
